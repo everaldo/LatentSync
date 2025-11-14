@@ -1,0 +1,44 @@
+# Primeira célula
+
+# 1. Instala o condacolab
+!pip install -q condacolab
+
+# 2. Importa e executa a instalação
+import condacolab
+condacolab.install()
+
+# Segunda célula
+
+! git clone https://github.com/bytedance/LatentSync
+
+# Terceira célula
+
+%cd LatentSync/
+
+
+# Quarta célula
+
+%pwd
+
+# Quinta célula
+
+!bash setup.sh
+
+# Sexta célula
+
+!conda run -n latentsync pip install --upgrade --force-reinstall matplotlib ipykernel
+
+# Sétima célula
+
+!conda run -n latentsync pip install --upgrade --force-reinstall --no-cache-dir numpy scikit-image
+
+# Oitava célula
+
+!conda run -n latentsync pip install "Pillow<12.0"
+
+# Nona célula
+
+! PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True ./inference.sh
+
+
+
